@@ -12,14 +12,6 @@ describe Factorization do
 
   describe "#prime_factors" do
 
-    it "returns an empty array if no input is given" do
-      expect(@controller.prime_factors).to eq []
-    end
-
-    it "returns an empty array if a nil input is given" do
-      expect(@controller.prime_factors(nil)).to eq []
-    end
-
     it "returns an empty array if the number 0 is given" do
       expect(@controller.prime_factors(0)).to eq []
     end
@@ -50,6 +42,58 @@ describe Factorization do
 
     it "returns [[2,23], [3,1], [7,4]] if the number 60423143424 is given" do
       expect(@controller.prime_factors(60423143424)).to eq [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,7,7,7,7]
+    end
+
+    context "validation" do
+
+      it "returns [] if no input is given" do
+        expect(@controller.prime_factors).to eq []
+      end
+
+      it "returns [] if a nil input is given" do
+        expect(@controller.prime_factors(nil)).to eq []
+      end
+
+      it "returns [] for abcd" do
+        expect(@controller.prime_factors("abcd")).to eq []
+      end
+
+      it "returns [] for a123" do
+        expect(@controller.prime_factors("a123")).to eq []
+      end
+
+      it "returns [] for 6abc" do
+        expect(@controller.prime_factors("6abc")).to eq []
+      end
+
+      it "returns [] for 5.0" do
+        expect(@controller.prime_factors(5.0)).to eq []
+      end
+
+      it "returns [] for '5.0' " do
+        expect(@controller.prime_factors("5.0")).to eq []
+      end
+
+      it "returns [] for 5.1" do
+        expect(@controller.prime_factors(5.1)).to eq []
+      end
+
+      it "returns [] for '5.1' " do
+        expect(@controller.prime_factors("5.1")).to eq []
+      end
+
+      it "returns [] for '' " do
+        expect(@controller.prime_factors("")).to eq []
+      end
+
+      it "returns [] for -5" do
+        expect(@controller.prime_factors(-5)).to eq []
+      end
+
+      it "returns [] for '-5' " do
+        expect(@controller.prime_factors("-5")).to eq []
+      end
+
     end
 
   end
