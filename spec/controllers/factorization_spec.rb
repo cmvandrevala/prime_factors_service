@@ -33,23 +33,23 @@ describe Factorization do
     end
 
     it "returns [[2,1]] if the number 2 is given" do
-      expect(@controller.prime_factors(2)).to eq [[2,1]]
+      expect(@controller.prime_factors(2)).to eq [2]
     end
 
     it "returns [[3,1]] if the number 3 is given" do
-      expect(@controller.prime_factors(3)).to eq [[3,1]]
+      expect(@controller.prime_factors(3)).to eq [3]
     end
 
     it "returns [[2,2]] if the number 4 is given" do
-      expect(@controller.prime_factors(4)).to eq [[2,2]]
+      expect(@controller.prime_factors(4)).to eq [2,2]
     end
 
     it "returns [[2,1], [7,1], [89,1]] if the number 1246 is given" do
-      expect(@controller.prime_factors(1246)).to eq [[2,1], [7,1], [89,1]]
+      expect(@controller.prime_factors(1246)).to eq [2,7,89]
     end
 
     it "returns [[2,23], [3,1], [7,4]] if the number 60423143424 is given" do
-      expect(@controller.prime_factors(60423143424)).to eq [[2,23], [3,1], [7,4]]
+      expect(@controller.prime_factors(60423143424)).to eq [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,7,7,7,7]
     end
 
   end

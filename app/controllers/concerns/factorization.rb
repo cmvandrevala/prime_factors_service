@@ -3,8 +3,15 @@ require 'prime'
 module Factorization
 
   def prime_factors(number = 0)
-    return Prime.prime_division(number) if valid_number?(number)
-    return []
+    if valid_number?(number)
+      factors = []
+      Prime.prime_division(number).each do |ary|
+        ary.last.times { factors << ary.first }
+      end
+      return factors
+    else
+      return []
+    end
   end
 
   private
@@ -12,7 +19,7 @@ module Factorization
   def valid_number?(number)
     return false if number.nil?
     return false if number <= 0
-    true
+    return true
   end
 
 end
